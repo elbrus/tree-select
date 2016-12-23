@@ -126,7 +126,7 @@ const SelectTrigger = React.createClass({
     loopAllChildren(treeNodes, (child, index, pos) => {
       if (this.filterTreeNode(this.props.inputValue, child)) {
         filterPoss.push(pos);
-        this._expandedKeys.push(child.key);
+        // this._expandedKeys.push(child.key);
       }
     });
 
