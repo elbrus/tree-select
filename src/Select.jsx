@@ -14,8 +14,8 @@ import {
   isInclude, labelCompatible, loopAllChildren, filterAllCheckedData,
   processSimpleTreeData,
 } from './util';
-import SelectTrigger from './SelectTrigger';
-import _TreeNode from './TreeNode';
+import SelectTrigger from './SelectTrigger.jsx';
+import _TreeNode from './TreeNode.jsx';
 
 function noop() {
 }
