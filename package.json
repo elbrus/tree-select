@@ -1,6 +1,6 @@
 {
   "name": "rc-tree-select",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "tree-select ui component for react",
   "keywords": [
     "react",
@@ -27,6 +27,7 @@
     "port": 8007
   },
   "scripts": {
+    "watch": "rc-tools run watch",
     "build": "rc-tools run build",
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",
