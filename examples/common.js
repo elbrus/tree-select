@@ -23319,12 +23319,7 @@
 	  },
 	  getSearchPlaceholderElement: function getSearchPlaceholderElement(hidden) {
 	    var props = this.props;
-	    var placeholder = void 0;
-	    if ((0, _util.isMultipleOrTagsOrCombobox)(props)) {
-	      placeholder = props.placeholder || props.searchPlaceholder;
-	    } else {
-	      placeholder = props.searchPlaceholder;
-	    }
+	    var placeholder = props.placeholder || props.searchPlaceholder;
 	    if (placeholder) {
 	      return _react2.default.createElement(
 	        'span',
