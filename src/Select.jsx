@@ -511,12 +511,7 @@ const Select = React.createClass({
 
   getSearchPlaceholderElement(hidden) {
     const props = this.props;
-    let placeholder;
-    if (isMultipleOrTagsOrCombobox(props)) {
-      placeholder = props.placeholder || props.searchPlaceholder;
-    } else {
-      placeholder = props.searchPlaceholder;
-    }
+    const placeholder = props.placeholder || props.searchPlaceholder;
     if (placeholder) {
       return (<span
         style={{ display: hidden ? 'none' : 'block' }}
