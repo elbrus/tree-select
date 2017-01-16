@@ -1011,8 +1011,8 @@ const Select = React.createClass({
           {ctrlNode}
           {allowClear && !multiple && this.state.value.length &&
           this.state.value[0].value ? clear : null}
-            {multiple || !props.showArrow ? null :
-              (<span
+            {props.showArrow && (
+              <span
                 key="arrow"
                 className={`${prefixCls}-arrow`}
                 style={{ outline: 'none' }}
