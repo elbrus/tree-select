@@ -121,7 +121,6 @@ const Demo = React.createClass({
     console.log(visible, this.state.value, info);
     if (Array.isArray(this.state.value) && this.state.value.length > 1
       && this.state.value.length < 3) {
-      alert('please select more than two item or less than one item.');
       return false;
     }
     return true;
