@@ -73,8 +73,8 @@
 		"object-assign": "^4.0.1",
 		"prop-types": "^15.5.10",
 		"rc-animate": "^2.4.1",
-		"rc-tree": "https://github.com/elbrus/tree/tarball/33911e038432686b1eeb7abd5401b0854df4362e",
-		"rc-trigger": "^1.11.3",
+		"rc-tree": "https://github.com/elbrus/tree/tarball/7732a16263b7456b851112aa2fae2cd3c4ec14c2",
+		"rc-trigger": "https://github.com/elbrus/trigger/tarball/052aa588e1f860b8d03bde06fb0396d601177019",
 		"rc-util": "^4.0.2"
 	}
 }
