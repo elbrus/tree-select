@@ -63,13 +63,13 @@ class SelectTrigger extends Component {
     }
   }
 
-  onExpand(expandedKeys) {
+  onExpand = (expandedKeys) => {
     // rerender
     this.setState({
       _expandedKeys: expandedKeys,
       fireOnExpand: true,
     });
-  }
+  };
 
   getPopupEleRefs() {
     return this.popupEle && this.popupEle.refs;
@@ -92,16 +92,16 @@ class SelectTrigger extends Component {
     return `${this.props.prefixCls}-dropdown`;
   }
 
-  highlightTreeNode(treeNode) {
+  highlightTreeNode = (treeNode) => {
     const props = this.props;
     const filterVal = treeNode.props[labelCompatible(props.treeNodeFilterProp)];
     if (typeof filterVal === 'string') {
       return props.inputValue && filterVal.indexOf(props.inputValue) > -1;
     }
     return false;
-  }
+  };
 
-  filterTreeNode(input, child) {
+  filterTreeNode = (input, child) => {
     if (!input) {
       return true;
     }
@@ -113,11 +113,11 @@ class SelectTrigger extends Component {
       return false;
     }
     return filterTreeNode.call(this, input, child);
-  }
+  };
 
-  savePopupElement(ele) {
+  savePopupElement = (ele) => {
     this.popupEle = ele;
-  }
+  };
 
   processTreeNode(treeNodes) {
     const filterPoss = [];
@@ -212,9 +212,11 @@ class SelectTrigger extends Component {
       trProps.loadData = props.loadData;
     }
 
-    return (<Tree ref={this.savePopupElement} {...trProps}>
+    return (
+      <Tree ref={this.savePopupElement} {...trProps}>
         {newTreeNodes}
-    </Tree>);
+      </Tree>
+    );
   }
 
   render() {
@@ -271,32 +273,41 @@ class SelectTrigger extends Component {
     let notFoundContent;
     if (!treeNodes.length) {
       if (props.notFoundContent) {
-        notFoundContent = (<span className={`${props.prefixCls}-not-found`}>
-          {props.notFoundContent}</span>);
+        notFoundContent = (
+          <span className={`${props.prefixCls}-not-found`}>
+            {props.notFoundContent}
+          </span>
+        );
       } else if (!search) {
         visible = false;
       }
     }
-    const popupElement = (<div>
-      {search}
-      {notFoundContent || this.renderTree(keys, halfCheckedKeys, treeNodes, multiple)}
-    </div>);
+    const popupElement = (
+      <div>
+        {search}
+        {notFoundContent || this.renderTree(keys, halfCheckedKeys, treeNodes, multiple)}
+      </div>
+    );
 
-    return (<Trigger
-      action={props.disabled ? [] : ['click']}
-      ref="trigger"
-      popupPlacement="bottomLeft"
-      builtinPlacements={BUILT_IN_PLACEMENTS}
-      popupAlign={props.dropdownPopupAlign}
-      prefixCls={dropdownPrefixCls}
-      popupTransitionName={this.getDropdownTransitionName()}
-      onPopupVisibleChange={props.onDropdownVisibleChange}
-      popup={popupElement}
-      popupVisible={visible}
-      getPopupContainer={props.getPopupContainer}
-      popupClassName={classnames(popupClassName)}
-      popupStyle={props.dropdownStyle}
-    >{this.props.children}</Trigger>);
+    return (
+      <Trigger
+        action={props.disabled ? [] : ['click']}
+        ref="trigger"
+        popupPlacement="bottomLeft"
+        builtinPlacements={BUILT_IN_PLACEMENTS}
+        popupAlign={props.dropdownPopupAlign}
+        prefixCls={dropdownPrefixCls}
+        popupTransitionName={this.getDropdownTransitionName()}
+        onPopupVisibleChange={props.onDropdownVisibleChange}
+        popup={popupElement}
+        popupVisible={visible}
+        getPopupContainer={props.getPopupContainer}
+        popupClassName={classnames(popupClassName)}
+        popupStyle={props.dropdownStyle}
+      >
+        {this.props.children}
+      </Trigger>
+    );
   }
 }
 

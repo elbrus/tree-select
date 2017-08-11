@@ -251,7 +251,7 @@ class Select extends Component {
     }
   }
 
-  onInputChange(event) {
+  onInputChange = (event) => {
     const val = event.target.value;
     const { props } = this;
     this.setState({
@@ -269,9 +269,9 @@ class Select extends Component {
     //   }]);
     // }
     props.onSearch(val);
-  }
+  };
 
-  onDropdownVisibleChange(open) {
+  onDropdownVisibleChange = (open) => {
     // selection inside combobox cause click
     if (!open && document.activeElement === this.getInputDOMNode()) {
       // return;
@@ -281,10 +281,10 @@ class Select extends Component {
     setTimeout(() => {
       this.setOpenState(open, undefined, !open);
     }, 10);
-  }
+  };
 
   // combobox ignore
-  onKeyDown(event) {
+  onKeyDown = (event) => {
     const props = this.props;
     if (props.disabled) {
       return;
@@ -296,19 +296,9 @@ class Select extends Component {
       this.setOpenState(true);
       event.preventDefault();
     }
-  }
+  };
 
-  onInputBlur() {
-    // if (isMultipleOrTagsOrCombobox(this.props)) {
-    //   return;
-    // }
-    // this.clearDelayTimer();
-    // this.delayTimer = setTimeout(() => {
-    //   this.setOpenState(false);
-    // }, 150);
-  }
-
-  onInputKeyDown(event) {
+  onInputKeyDown = (event) => {
     const props = this.props;
     if (props.disabled) {
       return;
@@ -339,17 +329,9 @@ class Select extends Component {
       }
       return;
     }
+  };
 
-    if (state.open) {
-      // const menu = this.refs.trigger.getPopupEleRefs();
-      // if (menu && menu.onKeyDown(event)) {
-      //   event.preventDefault();
-      //   event.stopPropagation();
-      // }
-    }
-  }
-
-  onSelect(selectedKeys, info) {
+  onSelect = (selectedKeys, info) => {
     if (info.selected === false) {
       this.onDeselect(info);
       return;
@@ -385,13 +367,8 @@ class Select extends Component {
           label: selectedLabel,
         }]);
       }
-      // if (!checkEvt && value.indexOf(selectedValue) !== -1) {
-        // it has issues on set `multiple`
-        // return;
-      // }
     } else {
       if (value.length && value[0].value === selectedValue) {
-        // this.setOpenState(false, true);
         this.setOpenState(false);
         return;
       }
@@ -399,7 +376,6 @@ class Select extends Component {
         value: selectedValue,
         label: selectedLabel,
       }];
-      // this.setOpenState(false, true);
       this.setOpenState(false);
     }
 
@@ -425,14 +401,9 @@ class Select extends Component {
         inputValue: '',
       });
     }
-    // if (isCombobox(props)) {
-    //   this.setState({
-    //     inputValue: getPropValue(item, props.treeNodeLabelProp),
-    //   });
-    // }
-  }
+  };
 
-  onDeselect(info) {
+  onDeselect = (info) => {
     this.removeSelected(getValuePropValue(info.node));
     if (!isMultipleOrTags(this.props)) {
       this.setOpenState(false);
@@ -442,27 +413,13 @@ class Select extends Component {
         inputValue: '',
       });
     }
-  }
+  };
 
-  onPlaceholderClick() {
+  onPlaceholderClick = () => {
     this.getInputDOMNode().focus();
-  }
+  };
 
-  onOuterFocus() {
-    // It stops open/close animation, and note `onDropdownVisibleChange`'s `setTimeout`
-    // this.setState({
-    //   focused: true,
-    // });
-  }
-
-  onOuterBlur() {
-    // It stops open/close animation, and note `onDropdownVisibleChange`'s `setTimeout`
-    // this.setState({
-    //   focused: false,
-    // });
-  }
-
-  onClearSelection(event) {
+  onClearSelection = (event) => {
     const props = this.props;
     const state = this.state;
     if (props.disabled) {
@@ -478,7 +435,7 @@ class Select extends Component {
         });
       }
     }
-  }
+  };
 
   getLabelFromNode(child) {
     return getPropValue(child, this.props.treeNodeLabelProp);
@@ -528,7 +485,6 @@ class Select extends Component {
     return (<span className={`${props.prefixCls}-search__field__wrap`}>
       <input
         ref={this.saveInputRef}
-        onBlur={this.onInputBlur}
         onChange={this.onInputChange}
         onKeyDown={this.onInputKeyDown}
         value={this.state.inputValue}
@@ -992,8 +948,6 @@ class Select extends Component {
         <span
           style={props.style}
           onClick={props.onClick}
-          onBlur={this.onOuterBlur}
-          onFocus={this.onOuterFocus}
           className={classnames(rootCls)}
         >
           <span
