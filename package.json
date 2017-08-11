@@ -76,7 +76,7 @@
 		"object-assign": "^4.0.1",
 		"prop-types": "^15.5.10",
 		"rc-animate": "^2.4.1",
-		"rc-tree": "https://github.com/elbrus/tree/tarball/72d738432a4b07cbb67ca93a87fe68b740febad6",
+		"rc-tree": "https://github.com/elbrus/tree/tarball/33911e038432686b1eeb7abd5401b0854df4362e",
 		"rc-trigger": "^1.11.3",
 		"rc-util": "^4.0.2"
 	}
